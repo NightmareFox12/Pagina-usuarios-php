@@ -8,7 +8,7 @@ let color;
 
 const cambiar = ()=>{
 if (bool) {
-  document.cookie = 'colorFondo=#001';
+  document.cookie = 'colorFondo=#161b22';
   bool = false;
   return color;
  } 
@@ -21,7 +21,7 @@ if (bool) {
 btnBody.addEventListener('click',()=>{
  if(btnBody.checked){
     cambiar();
-    body.style.backgroundColor = '#001';
+    body.style.backgroundColor = '#161b22';
  } else {
     cambiar();
     document.cookie = `colorFondo=${color}`;
@@ -34,7 +34,7 @@ let cookies = document.cookie.split('; ');
 let cookie = cookies[0].split('=');
 body.style.backgroundColor = cookie[1];
 
- if(cookie[1] === '#001'){
+ if(cookie[1] === '#161b22'){
    btnBody.checked = true;
    console.log("modo dark");
  } else {

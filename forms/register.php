@@ -95,13 +95,13 @@ const body = document.querySelector('.body');
 const h2 = document.querySelector('.h2');
 
 let cookies = document.cookie.split('; ');
-let cookie = cookies[1].split('=');
+let cookie = cookies[0].split('=');
+console.log(cookie);
 
 body.style.backgroundColor = cookie[1];
 
-if(cookie[1] === '#001'){
+if(cookie[1] === '#161b22'){
   h2.style.color = '#fff';
- 
 }
 
 </script>
