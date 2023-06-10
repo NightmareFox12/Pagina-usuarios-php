@@ -1,0 +1,105 @@
+* {
+  padding: 0;
+  margin: 0;
+  text-decoration: none;
+}
+body::-webkit-scrollbar {
+  width: 5px;
+  height: 5px;
+}
+body::-webkit-scrollbar-thumb {
+  width: 5px;
+  height: 5px;
+  background-color: #002;
+}
+nav {
+  width: 100vw;
+  height: 60px;
+  background-color: #aaa;
+}
+nav > ul {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  list-style: none;
+}
+nav > ul > li {
+  padding: 5px;
+  font-family: "Louis";
+}
+nav > ul > li > a {
+  color: #fff; 
+  font-size: 1.1rem;
+}
+.content-changes {
+  width: 100vw;
+  height: 500px;
+  display: grid;
+  margin: 10px auto;
+  grid-template-columns: repeat(2,1fr);
+}
+.img-container {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  align-items: flex-start;
+  flex-direction: column;
+  margin: 0 auto;
+}
+.img-content {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 50%;
+  margin: 10px;
+  margin-bottom: 0;
+}
+.img-content > img {
+  width: 100%;
+  height: 100%;
+  border-radius: 100%;
+  border: 1px dashed #444;
+}
+.btn-position {
+ display: flex !important;
+ justify-content: flex-end;
+ width: 50%;
+ margin: -40px 0;
+}
+.btn-position > button {
+  width: 50px;
+  height: 50px;
+  border-radius: 100%;
+  border: none;
+  background-color: #fff;
+  transition: .4s;
+  border: 1px dashed #000;
+  cursor: pointer;
+}
+.btn-position > button > a > img {
+  width: 60%;
+  height: 60%;
+}
+.btn-position > button:hover {
+  transform: rotate(10deg);
+  background-color: #bbb;
+  transition: .5s;
+}
+.form-container {
+  width: 100%;
+  height: 100%;
+  background-color: #ccc;
+}
+.form-container > form {
+  width: 90%;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  margin: 20px auto;
+}
+textarea {
+  resize: none;
+}

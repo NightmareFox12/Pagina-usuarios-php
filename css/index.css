@@ -1,0 +1,138 @@
+* {
+  padding: 0;
+  margin: 0;
+  text-decoration: none;
+}
+body {
+  transition: 1s;
+}
+.container-dark {
+  width: 90%;
+  height: 30px;
+  transition: .5s;
+  position: fixed;
+  top: 0;
+  display: flex;
+  align-items: flex-start;
+  justify-content: flex-end;
+}
+.bg-btn {
+  width: 70px;
+  height: 30px;
+  background-color: #000;
+  border-radius: 50px;
+  position: relative;
+  overflow: hidden;
+  margin: 10px 0;
+}
+label {
+  display: inline-flex;
+  position: absolute;
+  width: 200px;
+  height: 100%;
+  z-index: 1;
+  transform: translateX(-30px);
+}
+label > i {
+  display: inline-block;
+  height: 30px;
+  padding: 1px 5px;
+}
+.sun > img {
+ fill: #fff;
+}
+.moon > img {
+ filter: invert(100%);
+
+}
+.bg-btn > input {
+  width: 30px;
+  height: 30px;
+  background-color: #2b9d2b;
+  appearance: none;
+  border-radius: 100%;
+  transition: .5s;
+  cursor: pointer;
+  position: relative;
+  z-index: 2;
+}
+.checkbox:checked {
+  transform: translateX(40px);
+  background-color: #0cc;
+  transition: .5s;
+}
+.content {
+  display: flex;
+  width: 100vw;
+  height: 100vh;
+  align-items: center;
+  justify-content: center;
+}
+.container-btn {
+  display: flex;
+  height: 200px;
+  width: 100%;
+  align-items: center;
+  justify-content: center;
+}
+a {
+  display: inline-flex;
+  justify-content: center;
+  align-items: center;
+  font-family: "Louis";
+  height: 45px;
+  width: 40%;
+  margin: 0 10px;
+  border-radius: 10px;
+  background-color: #24830c;
+  font-size: 1rem;
+  border: none;
+  cursor: pointer;
+  color: #fff;
+  overflow: hidden;
+  position: relative;
+  transition: .3s;
+}
+a span {
+  z-index: 2;
+}
+a::after {
+  content: "";
+  width: 100%;
+  border-right: 40px solid transparent;
+  border-bottom: 45px solid #3c22b0;
+  position: absolute;
+  top: 0;
+  left: -120%;
+  z-index: 1;
+  transition: .6s ease-in-out;
+}
+a:hover::after {
+  left: 0;
+}
+footer {
+ font-family: "infinity";
+ display: flex;
+ justify-content: center;
+ align-items: center;
+ position: fixed;
+ bottom: 0;
+ background-color: #ddd;
+ width: 100vw;
+ padding: 20px 0;
+}
+footer > h4 {
+  text-align: center;
+}
+
+
+@keyframes cargar {
+ 0% {opacity: 0; transform: translateX(100%);}
+ 100% { opacity: 100%; transform: translateX(0%);}
+}
+
+@media screen and (min-width: 600px){
+  a {
+    width: 25%;
+  }
+}
