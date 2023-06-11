@@ -3,24 +3,29 @@
   margin: 0;
 }
 body {
-  background-repeat: no-repeat;
   height: 100vh;
+}
+.container-dark {
+  width: 95% !important;
+}
+.bg-btn > input {
+  top: -20% !important;
 }
 h2 {
   text-align: center;
   font-family: "Louis";
-  padding: 20px;
+  margin: 30px auto;
 }
 .container-form {
-  background-color: #f5f5dc;
-  width: 400px;
+  background-color: #f2f2f2;
+  max-width: 350px;
   border-radius: 20px;
   margin: 20px auto;
   padding: 20px 10px;
   display: none;
   margin-top: 10px;
   height: 350px;
-  box-shadow: 5px 5px 10px #00c0c0cc;
+  box-shadow: 5px 5px 10px #0007;
 }
 form {
  width: 100%;
@@ -29,12 +34,12 @@ form {
  justify-content: center;
  align-items: center;
  flex-direction: column;
- gap: 10px;
+ gap: 5px;
 }
 input {
- margin: 5px 0;
+ margin: 6px 0;
  padding: 10px;
- width: 90%;
+ width: 80%;
  color: #000;
  border: none;
  font-size: 1rem;
@@ -50,20 +55,20 @@ input:focus {
  outline: none;
  color: #000;
  box-shadow: none;
- background-color: #bdffff;
+ background-color: #ccc;
  border-radius: 30px;
  transition: .5s;
 }
 input:hover {
- box-shadow: 0 2px 0 #fff;
+ box-shadow: 0 2px 0 #000;
  transition: .5s;
 }
 input[type="submit"] {
  font-family: "Louis";
  color: #000;
- background-color: mediumspringgreen;
  width: 30%;
- background-color: #eee;
+ color: #fff;
+ background-color: #333;
  box-shadow: none;
  cursor: not-allowed;
  border-radius: 10px;
@@ -77,14 +82,14 @@ input::placeholder {
 span {
   font-family: "infinity";
   text-align: left;
-  color: #fff;
-  font-size: .9rem;
+  color: #000;
+  font-size: 1rem;
   top: 0;
   display: inline-block;
 }
 a {
   display: block;
-  color: #fff;
+  color: #000;
   font-family: "infinity";
   font-size: 1rem;
   text-decoration: none;

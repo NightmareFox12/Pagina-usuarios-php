@@ -15,30 +15,26 @@ if($_POST) {
  $contraseniaEncriptada = password_hash($password, PASSWORD_DEFAULT);
  $contraseniaEncriptada2 = password_hash($passwordVerify, PASSWORD_DEFAULT);
    
-
   if(password_verify($password,$contraseniaEncriptada) === password_verify($passwordVerify,$contraseniaEncriptada2)){
 
-$sql = "SELECT email FROM users_short";
-$resultados = $objConexion->consultar($sql);
+    $sql = "SELECT email FROM users_short";
+    $resultados = $objConexion->consultar($sql);
+      if($objConexion) {
+       foreach ($resultados as $resultado) {
+         if($resultado['email'] !== $email) $repeat = false;
+         else $repeat = true;
+       }
 
-    if($objConexion) {
-     foreach ($resultados as $resultado) {
-      if($resultado['email'] !== $email) $repeat = false;
-      else $repeat = true;
- }
- 
  if($repeat) { ?>
 <div class="incorrect">
  <h4 class="incorrect-text"><?php echo 'El Correo Electronico ya esta registrado a otro usuario';?></h4>
 </div>
 <?php 
-  header("./register.php");
+   header("./register.php");
  } else {
- $sql = "INSERT INTO users_short(name,email,password) VALUES ('$name','$email','$password')";
- $objConexion->ejecutar($sql);
-  
- $_SESSION['log-in'] = $name;
- header("Location: ./log-in.php");
+   $sql = "INSERT INTO users_short(name,email,password) VALUES ('$name','$email','$password')";
+   $objConexion->ejecutar($sql);
+   header("Location: ./log-in.php");
     }
    }
   }
@@ -57,6 +53,7 @@ if( isset($_SESSION['no-log-in'])) {
  <title>Registrarse</title>
  <link rel="stylesheet" type="text/css" href="./../css/register.css">
  <link rel="stylesheet" type="text/css" href="./../css/fonts.css">
+  <link rel="stylesheet" type="text/css" href="./../css/btn-dark.css">
  <meta charset="utf-8">
  <link rel="icon" href="./../media/user-plus.svg">
 </head>
@@ -64,16 +61,16 @@ if( isset($_SESSION['no-log-in'])) {
 
 <h2 class="h2">Registrese para continuar</h2>
  
- <!--<div class="container-dark">
+<div class="container-dark">
   <div class="bg-btn">
-   <input type="checkbox" class="checkbox">
+   <input type="checkbox" class="checkbox" value="bg">
    <label>
     <i class="sun"><img src="./../media/sun-low.svg"></i>
     <i class="moon"><img src="./../media/moon.svg"></i>
   </label>
  </div>
 </div>
--->
+
 <div class="container-form">
 <form method="POST" class="form">
  <input type="text" name="name" placeholder="Nombre"  value="" required="">
@@ -89,21 +86,26 @@ if( isset($_SESSION['no-log-in'])) {
 
 <script src="./../js/classes.js"></script>
 <script src="./../js/verify.js"></script>
-
+<script src="./../js/mode-dark.js"></script>
 <script type="text/javascript">
+
 const body = document.querySelector('.body');
 const h2 = document.querySelector('.h2');
+const form = document.querySelector('.container-form');
 
 let cookies = document.cookie.split('; ');
-let cookie = cookies[0].split('=');
-console.log(cookie);
+let cookie = [];
+for(let i=0; i < cookies.length; i++){
+ cookie = cookies[i].split('=');
 
-body.style.backgroundColor = cookie[1];
-
-if(cookie[1] === '#161b22'){
-  h2.style.color = '#fff';
+  if(cookie[i] === 'colorFondo'){
+   body.style.backgroundColor = cookie[1];
+    if(cookie[1] === '#161b22'){
+     h2.style.color = '#fff';
+     form.style.boxShadow = '5px 5px 5px #00f';
+    }
+  }     
 }
-
 </script>
 </body>
 </html>
@@ -112,7 +114,6 @@ if(cookie[1] === '#161b22'){
 
 } else {
  header("Location: ./log-in.php");
-
 }
  
 ?>

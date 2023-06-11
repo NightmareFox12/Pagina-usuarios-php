@@ -14,6 +14,7 @@ if( isset($_SESSION['log-in']) || isset($_SESSION['usuario'])) {
  <title>Inicio</title>
  <link rel="stylesheet" type="text/css" href="./css/index.css">
  <link rel="stylesheet" type="text/css" href="./css/fonts.css">
+ <link rel="stylesheet" type="text/css" href="./css/btn-dark.css">
  <meta charset="utf-8">
  <link rel="icon" href="./media/brand-google-home.svg">
 </head>
@@ -21,7 +22,7 @@ if( isset($_SESSION['log-in']) || isset($_SESSION['usuario'])) {
 
 <div class="content">
 
- <div class="container-dark">
+<div class="container-dark">
   <div class="bg-btn">
    <input type="checkbox" class="checkbox" value="bg">
    <label>
@@ -30,6 +31,7 @@ if( isset($_SESSION['log-in']) || isset($_SESSION['usuario'])) {
   </label>
  </div>
 </div>
+
 
 <div class="container-btn">
 
@@ -43,8 +45,6 @@ if( isset($_SESSION['log-in']) || isset($_SESSION['usuario'])) {
 <footer>
  <h4>Todos los derechos reservados. | 2023</h4>
 </footer>
-
-<script src="./js/index.js"></script>
 <script src="./js/mode-dark.js"></script>
 </body>
 </html>
