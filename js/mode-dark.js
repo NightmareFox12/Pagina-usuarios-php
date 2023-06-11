@@ -25,11 +25,13 @@ btnBody.addEventListener('click',()=>{
     cambiar();
     body.style.backgroundColor = '#161b22';
     bgBtn.style.backgroundColor = '#0a620a';
+    console.log('modo blanco');
  } else {
     cambiar();
     document.cookie = `colorFondo=${color}`;
     body.style.backgroundColor = '#fff';
     bgBtn.style.backgroundColor = '#022';
+     console.log('modo blanco');
  }
 });
 
@@ -37,8 +39,6 @@ btnBody.addEventListener('click',()=>{
 let cookies = document.cookie.split('; ');
 let cookie = cookies[0].split('=');
 body.style.backgroundColor = cookie[1];
-
-console.log(cookie);
 
  if(cookie[1] === '#161b22'){
    btnBody.checked = true;

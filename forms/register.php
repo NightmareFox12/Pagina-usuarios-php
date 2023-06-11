@@ -89,12 +89,11 @@ if( isset($_SESSION['no-log-in'])) {
 <script src="./../js/mode-dark.js"></script>
 <script type="text/javascript">
 
-const body = document.querySelector('.body');
 const h2 = document.querySelector('.h2');
 const form = document.querySelector('.container-form');
 
-let cookies = document.cookie.split('; ');
-let cookie = [];
+cookies = document.cookie.split('; ');
+cookie = [];
 for(let i=0; i < cookies.length; i++){
  cookie = cookies[i].split('=');
 
@@ -106,6 +105,17 @@ for(let i=0; i < cookies.length; i++){
     }
   }     
 }
+
+
+
+btnBody.addEventListener('click',()=>{
+ if(btnBody.checked){
+   h2.style.color = '#fff';
+ } else {
+    h2.style.color = "#000";
+ }
+});
+
 </script>
 </body>
 </html>
