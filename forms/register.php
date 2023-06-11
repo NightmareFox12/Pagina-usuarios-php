@@ -53,23 +53,12 @@ if( isset($_SESSION['no-log-in'])) {
  <title>Registrarse</title>
  <link rel="stylesheet" type="text/css" href="./../css/register.css">
  <link rel="stylesheet" type="text/css" href="./../css/fonts.css">
-  <link rel="stylesheet" type="text/css" href="./../css/btn-dark.css">
  <meta charset="utf-8">
  <link rel="icon" href="./../media/user-plus.svg">
 </head>
 <body class="body">
 
 <h2 class="h2">Registrese para continuar</h2>
- 
-<div class="container-dark">
-  <div class="bg-btn">
-   <input type="checkbox" class="checkbox" value="bg">
-   <label>
-    <i class="sun"><img src="./../media/sun-low.svg"></i>
-    <i class="moon"><img src="./../media/moon.svg"></i>
-  </label>
- </div>
-</div>
 
 <div class="container-form">
 <form method="POST" class="form">
@@ -86,9 +75,8 @@ if( isset($_SESSION['no-log-in'])) {
 
 <script src="./../js/classes.js"></script>
 <script src="./../js/verify.js"></script>
-<script src="./../js/mode-dark.js"></script>
 <script type="text/javascript">
-
+const body = document.querySelector('.body');
 const h2 = document.querySelector('.h2');
 const form = document.querySelector('.container-form');
 
@@ -98,6 +86,7 @@ for(let i=0; i < cookies.length; i++){
  cookie = cookies[i].split('=');
 
   if(cookie[i] === 'colorFondo'){
+    console.log(cookie)
    body.style.backgroundColor = cookie[1];
     if(cookie[1] === '#161b22'){
      h2.style.color = '#fff';
@@ -105,17 +94,6 @@ for(let i=0; i < cookies.length; i++){
     }
   }     
 }
-
-
-
-btnBody.addEventListener('click',()=>{
- if(btnBody.checked){
-   h2.style.color = '#fff';
- } else {
-    h2.style.color = "#000";
- }
-});
-
 </script>
 </body>
 </html>

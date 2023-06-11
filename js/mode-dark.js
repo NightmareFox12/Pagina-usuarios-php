@@ -25,13 +25,11 @@ btnBody.addEventListener('click',()=>{
     cambiar();
     body.style.backgroundColor = '#161b22';
     bgBtn.style.backgroundColor = '#0a620a';
-    console.log('modo blanco');
  } else {
     cambiar();
     document.cookie = `colorFondo=${color}`;
     body.style.backgroundColor = '#fff';
     bgBtn.style.backgroundColor = '#022';
-     console.log('modo blanco');
  }
 });
 
