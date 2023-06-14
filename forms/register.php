@@ -52,6 +52,7 @@ if( isset($_SESSION['no-log-in'])) {
 <head>
  <title>Registrarse</title>
  <link rel="stylesheet" type="text/css" href="./../css/register.css">
+ <link rel="stylesheet" type="text/css" href="./../css/bootstrap.css">
  <link rel="stylesheet" type="text/css" href="./../css/fonts.css">
  <meta charset="utf-8">
  <link rel="icon" href="./../media/user-plus.svg">
