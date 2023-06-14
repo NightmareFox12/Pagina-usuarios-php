@@ -61,13 +61,24 @@ if( isset($_SESSION['no-log-in'])) {
 
 <h2 class="h2">Registrese para continuar</h2>
 
-<div class="container-form">
+<div class="container-form mt-5 bg-light p-4 rounded-3">
 <form method="POST" class="form">
- <input type="text" name="name" placeholder="Nombre"  value="" required="">
- <input type="email" name="email" placeholder="Correo Electronico" value="" required="" >
- <input type="password" name="password" class="password" placeholder="Contraseña" value="" required="" >
- <input type="password" name="password-verify" class="password-confirm" placeholder="Confirmar Contraseña" value="" required="">
- <span class="span"></span>
+<div class="form-floating mb-3 p-0">
+  <input type="text" name="name" class="form-control" id="floatingInput" placeholder="ej. Miguel" required>
+  <label for="floatingInput">Nombre</label>
+</div>
+<div class="form-floating mb-3">
+  <input type="email" name="email" class="form-control" id="floatingInput" placeholder="ej. Miguel@12gmail.com" required>
+  <label for="floatingInput">Correo Electronico</label>
+</div>
+<div class="form-floating mb-3">
+  <input type="password" name="password" class="password form-control" id="floatingInput" placeholder="contrasenia">
+  <label for="floatingInput">Contraseña</label>
+</div>
+<div class="form-floating">
+  <input type="password" class="password-verify form-control" id="floatingPassword" placeholder="Confirmar Contraseña" required>
+  <label for="floatingPassword">Confirmar Contraseña</label>
+</div>
 
  <input type="submit" value="Enviar" class="btn-send">
  <h4><a href="./log-in.php">Iniciar Sesión</a></h4>
