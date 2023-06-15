@@ -17,6 +17,7 @@ if($_SESSION) { ?>
 if($_POST) {
   move_uploaded_file($_FILES["image"]["tmp_name"],"./../media/images/".$_FILES["image"]["name"]);
   $image = $_FILES["image"]["name"];
+  header('Location: ./edit-perfil.php');
 ?>
 
  <div class="container-image">

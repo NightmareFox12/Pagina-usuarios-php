@@ -13,7 +13,7 @@ $resultados = $objConexion->consultar($sql);
 <!DOCTYPE html>
 <html>
 <head>
- <title><?php echo $_SESSION['usuario']?></title>
+ <title><?php echo $_SESSION['log-in']?></title>
  <link rel="stylesheet" type="text/css" href="./../css/footer.css">
  <link rel="stylesheet" type="text/css" href="./../css/edit-perfil.css">
  <link rel="stylesheet" type="text/css" href="./../css/fonts.css">
@@ -53,7 +53,6 @@ $resultados = $objConexion->consultar($sql);
    <textarea cols="20" rows="5" placeholder="Escriba una descripcion breve"></textarea>
    <input type="text" name="nameUpdate" value="<?php echo $name ?>">
    <input type="email" name="emailUpdate" value="<?php echo $email ?>">
-   <input type="text" name="passwordUpdate" value="<?php echo $password ?>">
 
    <input type="submit" value="Guardar cambios">
   </form>
@@ -62,10 +61,9 @@ $resultados = $objConexion->consultar($sql);
 </content>
 <?php echo $userActualId;
 if($_POST) {
- if( isset($_POST['nameUpdate']) && !empty($_POST['nameUpdate']) && isset($_POST['emailUpdate']) && !empty($_POST['emailUpdate']) && isset($_POST['passwordUpdate']) && !empty($_POST['passwordUpdate'])) {
+ if( isset($_POST['nameUpdate']) && !empty($_POST['nameUpdate']) && isset($_POST['emailUpdate']) && !empty($_POST['emailUpdate']) ) {
    $nameUpdate = $_POST['nameUpdate'];
    $emailUpdate = $_POST['emailUpdate'];
-   $passwordUpdate = $_POST['passwordUpdate'];
 ;
  $sql = "UPDATE users_short SET name = '$nameUpdate', email = '$emailUpdate', password = '$passwordUpdate' WHERE userID = '$userActualId'";
  $objConexion->ejecutar($sql);
@@ -81,7 +79,6 @@ if($_POST) {
  const bntEdit = document.querySelector(".btn-position");
 
 </script>
-<?php include './footer.php' ?>
 <?php } else { 
 	header("location: ./../index.php");
 }?>

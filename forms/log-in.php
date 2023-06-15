@@ -4,7 +4,7 @@ session_start();
 print_r($_SESSION);
 $objConexion = new conexion();
 
-//Recibiendo los datos del formulario y validando
+//Recibiendo los datos del formulario y validando datos
 if($_POST) {
  if( isset($_POST['name']) && !empty($_POST['name']) && isset($_POST['password']) && !empty($_POST['password']) ){
      $name = $_POST['name'];    $password = $_POST['password'];
@@ -17,18 +17,23 @@ if($_POST) {
     foreach ($resultados as $resultado) {
        $passwordEncripted = $resultado['password'];
         if( password_verify($password, $passwordEncripted) ){
-         echo $resultado['name']; 
-         echo $resultado['userID']; 
+         $name = $resultado['name']; 
+         $userID = $resultado['userID']; 
 
-         //unset($_SESSION['no-log-in']);
-         //header('./../Home/home.php?name=$user');
-       } 
+         unset($_SESSION['no-log-in']);
+         $_SESSION['userID'] = $userID;
+         $_SESSION['log-in'] = $name;
+         header('Location: ./../Home/home.php');
+       }  
   }
  } else echo 'no estas registrado'; 
 }
 }
 ?>
 
+<?php if($_SESSION['no-log-in']) {
+  
+?>
 <!DOCTYPE html>
 <html lang="es">
 <head>
@@ -38,24 +43,27 @@ if($_POST) {
 </head>
 <body class="body container-fluid">
 <!--de ahi crear el login y el recuperar contrasenia-->
-<h2 class="h3 text-center my-2">Inicie sesión para continuar</h2>
+<h3 class="h3 text-center my-4">Inicie sesión para continuar</h3>
 
-<div class="container rounded-3 mt-3 p-3 bg-light mx-auto" style="width:300px;height:400px">
+<div class="form container rounded-3 mt-4 p-4 bg-light mx-auto" style="width:320px;height:300px;box-shadow: 2px 2px 5px #003">
  <form method="POST">
- <div class="mb-3">
-  <label for="name" class="form-label">Usuario:</label>
+ <div class="my-3">
   <input type="text" name="name" class="form-control" placeholder="Usuario" required>
 </div>
-<div class="mb-3">
-  <label for="password" class="form-label">Email address</label>
+<div class="my-3">
   <input type="password" name="password" class="form-control" placeholder="Contraseña" required>
 </div>
+<div class="mt-3 d-flex justify-content-center align-items-center">
+  <input type="submit" class="btn btn-success mt-3 px-4" value="Ingresar">
+</div>
+  <a href="./register.php" class="text-center mt-3 d-block p-0 link-active" style="font-size:.9rem">Registrarme</a>
+  <a href="./log-in.php" class="text-center d-block p-0 link-active" style="font-size:.9rem">Olvide mi contraseña</a>
  </form>
 </div>
 
 <script type="text/javascript">
 const body = document.querySelector('.body');
-const h4 = document.querySelector('.title');
+const h3 = document.querySelector('.h3');
 const form = document.querySelector('.form');
 
 cookies = document.cookie.split('; ');
@@ -67,7 +75,7 @@ for(let i=0; i < cookies.length; i++){
     console.log(cookie)
    body.style.backgroundColor = cookie[1];
     if(cookie[1] === '#161b22'){
-     h4.style.color = '#fff';
+     h3.style.color = '#fff';
      form.style.boxShadow = '0 0 15px #2600ff';
     }
   }     
@@ -75,3 +83,8 @@ for(let i=0; i < cookies.length; i++){
 </script> 
 </body>
 </html>
+<?php
+} else {
+  header('Location: ./../Home/home.php');
+}
+?>
