@@ -19,32 +19,27 @@ if($_POST) {
    
   if(password_verify($password,$contraseniaEncriptada) === password_verify($passwordVerify,$contraseniaEncriptada2)){
 
-    $sql = "SELECT email FROM users_short";
-    $resultados = $objConexion->consultar($sql);
-      if($objConexion) {
-       foreach ($resultados as $resultado) {
-         if($resultado['email'] !== $email) $repeat = false; 
-         else $repeat = true;
-       }
+    $sql = "SELECT email FROM users_short WHERE email = '$email'";
+    $result = $objConexion->consultar($sql);
+      if($result) $repeat = true;
+      else $repeat = false;
 
  if($repeat) { ?>
-<div class="incorrect">
- <h4 class="incorrect-text"><?php echo 'El Correo Electronico ya esta registrado a otro usuario';?></h4>
+<div class="w-100 fixed-bottom text-center" style="background-color: #610708;height:50px">
+ <h4 class="incorrect-text"><?php echo 'El Correo Electronico ya esta registrado a otro usuario'?></h4>
 </div>
 <?php 
    header("./register.php");
  } else {
-   $sql = "INSERT INTO users_short(name,email,password) VALUES ('$name','$email','$password')";
-   $objConexion->ejecutar($sql);
-   header("Location: ./security-questions.php");
-    }
+    $sql = "INSERT INTO users_short(`name`,`email`,`password`) VALUES ('$name','$email','$contraseniaEncriptada')";
+    $userID = $objConexion->ejecutar($sql);
+    header("Location: ./security-questions.php");
+    $_SESSION['userID'] = $userID;
    }
   }
  }
 }
-
 ?>
-
 <?php 
 if( isset($_SESSION['no-log-in'])) {
 
@@ -65,15 +60,15 @@ if( isset($_SESSION['no-log-in'])) {
 <div class="container-form mt-3 bg-light p-4 rounded-3">
 <form method="POST" class="form">
 <div class="form-floating mb-3 p-0">
-  <input type="text" name="name" class="form-control" id="floatingInput" placeholder="ej. Miguel" required>
+  <input type="text" name="name" class="form-control" placeholder="ej. Miguel" required>
   <label for="floatingInput">Nombre</label>
 </div>
 <div class="form-floating mb-3">
-  <input type="email" name="email" class="form-control" id="floatingInput" placeholder="ej. Miguel@12gmail.com" required>
+  <input type="email" name="email" class="form-control" placeholder="ej. Miguel@12gmail.com" required>
   <label for="floatingInput">Correo Electronico</label>
 </div>
 <div class="form-floating mb-3">
-  <input type="password" name="password" class="password form-control" id="floatingInput" placeholder="contrasenia">
+  <input type="password" name="password" class="password form-control" placeholder="contrasenia">
   <label for="floatingInput">Contraseña</label>
 </div>
 <div class="form-floating password-confirm">
@@ -81,7 +76,7 @@ if( isset($_SESSION['no-log-in'])) {
   <label for="floatingPassword">Confirmar Contraseña</label>
 </div>
  <span class="span h6 my-2 mx-auto text-center" style="display:block"></span>
- <input type="submit" value="Enviar" class="btn-send mt-3 mx-auto" style="cursor: not-allowed">
+ <input type="submit" value="Continuar" class="btn-send mt-3 mx-auto" style="cursor: not-allowed">
  <span class="text-center d-block mt-3" style="font-size: .9rem;">¿Tienes una cuenta?</span>
   <a href="./log-in.php" class="text-center d-block p-0 link-active" style="font-size:.9rem">Iniciar Sesión</a>
 </form>
@@ -91,7 +86,7 @@ if( isset($_SESSION['no-log-in'])) {
 <script src="./../js/verify.js"></script>
 <script type="text/javascript">
 const body = document.querySelector('.body');
-const h2 = document.querySelector('.h2');
+const h3 = document.querySelector('.h3');
 const form = document.querySelector('.container-form');
 
 cookies = document.cookie.split('; ');
@@ -103,7 +98,7 @@ for(let i=0; i < cookies.length; i++){
     console.log(cookie)
    body.style.backgroundColor = cookie[1];
     if(cookie[1] === '#161b22'){
-     h2.style.color = '#fff';
+     h3.style.color = '#fff';
      form.style.boxShadow = '0 0 15px #2600ff';
     }
   }     

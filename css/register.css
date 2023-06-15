@@ -40,18 +40,10 @@ input::placeholder {
   color: #000;
   font-size: 1rem;
 }
-.incorrect {
-  width: 100vw;
-  background-color: #6b0103;
-  height: 50px;
-  color: #fff;
-  position: fixed;
-  bottom: 0;
-}
 .incorrect-text {
+  color: #fff;
   font-size: 1.2rem;
   line-height: 50px;
-  text-align: center;
 }
 
 
