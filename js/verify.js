@@ -2,6 +2,7 @@
 
 const password = document.querySelector('.password');
 const confirmPassword = document.querySelector('.password-confirm');
+const confirmPasswordInput = document.querySelector('.password-confirm-input');
 const container = document.querySelector('.container-form');
 const span = document.querySelector('.span');
 const submitBtn = document.querySelector('.btn-send');
@@ -9,23 +10,24 @@ const submitBtn = document.querySelector('.btn-send');
 let booleano = true;
 
 addEventListener("load",()=>{
-  container.style.display = "block";
-  container.style.animation = "aparecer .7s forwards";
+  container.style.display = 'block';
+  container.style.animation = 'aparecer .7s forwards';
 });
 
 password.addEventListener("focus",()=> {
-  confirmPassword.style.display = "block";
-  confirmPassword.style.animation = "aparecer 1s forwards";
+  confirmPassword.style.display = 'block';
+  confirmPassword.style.animation = 'aparecer 1s forwards';
 });
 
 password.addEventListener("keyup",()=>{
 
  let contrasenia = password.value;
- let contraseniaConfirmar = confirmPassword.value;
-
+ let contraseniaConfirmar = confirmPasswordInput.value;
+ 
   if(contrasenia === contraseniaConfirmar) {
     booleano = false;
     span.textContent = "Contraseña Correcta";
+   
     const objBtn1 = new Btn({backColor: '#156f10',booleano: false});
     objBtn1.verify();
     const objBtn2 = new Btn({backColor: '#99bef4',color: '#000'});
@@ -42,9 +44,9 @@ password.addEventListener("keyup",()=>{
   
 });
 
-confirmPassword.addEventListener('keyup',()=> {
+confirmPasswordInput.addEventListener('keyup',()=> {
  let contrasenia = password.value;
- let contraseniaConfirmar = confirmPassword.value;
+ let contraseniaConfirmar = confirmPasswordInput.value;
 
   if(contrasenia === contraseniaConfirmar) {
      span.textContent = "Contraseña Correcta";
@@ -64,18 +66,18 @@ confirmPassword.addEventListener('keyup',()=> {
   }	
 });
 
-confirmPassword.addEventListener('focusout',()=> {
-  const objBtn9 = new Btn({backColor:'transparent',color: '#000'});
+confirmPasswordInput.addEventListener('focusout',()=> {
+  const objBtn9 = new Btn({backColor:'#fff',color: '#000'});
   objBtn9.passwordVerify();
 });
-confirmPassword.addEventListener('focusin',()=> {
-  const objBtn10 = new Btn({backColor:'#ccc',color:'#000'});
+confirmPasswordInput.addEventListener('focusin',()=> {
+  const objBtn10 = new Btn({backColor:'#fff',color:'#000'});
   objBtn10.passwordVerify();
 });
 
 submitBtn.addEventListener('mouseover',()=>{
  if(booleano === false){
-    const objBtn11 = new Btn({backColor:'#125e0d',shadow:'5px 5px 0 #03b0c3',time:'.6s'});
+    const objBtn11 = new Btn({backColor:'#125e0d',shadow:'0 0 10px #03b0c3',time:'.6s'});
     objBtn11.animation();
  } else {
     const objBtn12 = new Btn({backColor:'#444',color:'#fff',time:'.6s'});

@@ -22,8 +22,8 @@ class Btn {
    }
 
    passwordVerify() {
-    confirmPassword.style.backgroundColor = this.backColor;
-    confirmPassword.style.color = this.color;
+    confirmPasswordInput.style.backgroundColor = this.backColor;
+    confirmPasswordInput.style.color = this.color;
 }
 
 }

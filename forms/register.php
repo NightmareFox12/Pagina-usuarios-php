@@ -9,8 +9,10 @@ if($_POST) {
  	   isset($_POST['password']) && !empty($_POST['password']) &&
    	 isset($_POST['password-verify']) && !empty($_POST['password-verify'])) {
 
- $name = $_POST['name']; $email = $_POST['email'];
- $password = $_POST['password-verify']; $passwordVerify = $_POST['password-verify'];
+ $name = $_POST['name'];
+ $email = $_POST['email'];
+ $password = $_POST['password'];
+ $passwordVerify = $_POST['password-verify'];
 
  $contraseniaEncriptada = password_hash($password, PASSWORD_DEFAULT);
  $contraseniaEncriptada2 = password_hash($passwordVerify, PASSWORD_DEFAULT);
@@ -21,7 +23,7 @@ if($_POST) {
     $resultados = $objConexion->consultar($sql);
       if($objConexion) {
        foreach ($resultados as $resultado) {
-         if($resultado['email'] !== $email) $repeat = false;
+         if($resultado['email'] !== $email) $repeat = false; 
          else $repeat = true;
        }
 
@@ -34,7 +36,7 @@ if($_POST) {
  } else {
    $sql = "INSERT INTO users_short(name,email,password) VALUES ('$name','$email','$password')";
    $objConexion->ejecutar($sql);
-   header("Location: ./log-in.php");
+   header("Location: ./security-questions.php");
     }
    }
   }
@@ -53,15 +55,14 @@ if( isset($_SESSION['no-log-in'])) {
  <title>Registrarse</title>
  <link rel="stylesheet" type="text/css" href="./../css/register.css">
  <link rel="stylesheet" type="text/css" href="./../css/bootstrap.css">
- <link rel="stylesheet" type="text/css" href="./../css/fonts.css">
  <meta charset="utf-8">
  <link rel="icon" href="./../media/user-plus.svg">
 </head>
 <body class="body">
 
-<h2 class="h2">Registrese para continuar</h2>
+<h3 class="h3 my-4 text-center">Registrese para continuar</h3>
 
-<div class="container-form mt-5 bg-light p-4 rounded-3">
+<div class="container-form mt-3 bg-light p-4 rounded-3">
 <form method="POST" class="form">
 <div class="form-floating mb-3 p-0">
   <input type="text" name="name" class="form-control" id="floatingInput" placeholder="ej. Miguel" required>
@@ -75,13 +76,14 @@ if( isset($_SESSION['no-log-in'])) {
   <input type="password" name="password" class="password form-control" id="floatingInput" placeholder="contrasenia">
   <label for="floatingInput">Contraseña</label>
 </div>
-<div class="form-floating">
-  <input type="password" class="password-verify form-control" id="floatingPassword" placeholder="Confirmar Contraseña" required>
+<div class="form-floating password-confirm">
+  <input type="password" name="password-verify" class="password-confirm-input form-control" id="floatingPassword" placeholder="Confirmar Contraseña" required>
   <label for="floatingPassword">Confirmar Contraseña</label>
 </div>
-
- <input type="submit" value="Enviar" class="btn-send">
- <h4><a href="./log-in.php">Iniciar Sesión</a></h4>
+ <span class="span h6 my-2 mx-auto text-center" style="display:block"></span>
+ <input type="submit" value="Enviar" class="btn-send mt-3 mx-auto" style="cursor: not-allowed">
+ <span class="text-center d-block mt-3" style="font-size: .9rem;">¿Tienes una cuenta?</span>
+  <a href="./log-in.php" class="text-center d-block p-0 link-active" style="font-size:.9rem">Iniciar Sesión</a>
 </form>
 </div>
 
@@ -102,7 +104,7 @@ for(let i=0; i < cookies.length; i++){
    body.style.backgroundColor = cookie[1];
     if(cookie[1] === '#161b22'){
      h2.style.color = '#fff';
-     form.style.boxShadow = '5px 5px 5px #00f';
+     form.style.boxShadow = '0 0 15px #2600ff';
     }
   }     
 }
