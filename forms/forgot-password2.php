@@ -22,7 +22,7 @@ if($_POST){
         $tercera = $_POST['tercera'];
 
        if( password_verify($primera,$res1) && password_verify($segunda,$res2) && password_verify($tercera,$res3) ){
-         header('./new-password.php');
+         header('Location: ./new-password.php');
        } else {
           echo 'contrasenias incorrectas';
        }
@@ -41,7 +41,8 @@ if($_POST){
 </head>
 <body>
 
-<div class="form2 container rounded-3 mt-4 p-4 bg-light mx-auto" style="width:320px;height:400px;box-shadow: 2px 2px 5px #003">
+<h3 class="h3 text-center my-4">Responda a las preguntas de seguridad</h3>
+<div class="form2 container text-center rounded-3 mt-4 p-4 bg-light mx-auto" style="width:320px;height:400px;box-shadow: 2px 2px 5px #003">
  <form method="POST">
  <div class="my-3">
   <label for="primera"><?php echo "¿{$pregunta1}?"?></label>

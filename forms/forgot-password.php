@@ -24,12 +24,15 @@ if($_POST) {
     <link rel="stylesheet" href="./../css/bootstrap.css">
 </head>
 <body>
+  <h4 class="h4 text-center my-5">Ingrese los datos para la recuperacion de contraseña</h4>
 <div class="form container rounded-3 mt-4 p-4 bg-light mx-auto" style="width:320px;height:300px;box-shadow: 2px 2px 5px #003">
  <form method="POST">
  <div class="my-3">
+  <label for="name">Nombre de usuario</label>
   <input type="text" name="name" class="form-control" placeholder="Usuario" required>
 </div>
 <div class="my-3">
+  <label for="email">Correo Electronico</label>
   <input type="email" name="email" class="form-control" placeholder="Correo electronico" required>
 </div>
 <div class="mt-3 d-flex justify-content-center align-items-center">
