@@ -1,7 +1,6 @@
 <?php include './../globals/conexion.php'?>
 <?php
 session_start();
-print_r($_SESSION);
 $objConexion = new conexion();
 
 //Recibiendo los datos del formulario y validando datos
@@ -57,7 +56,7 @@ if($_POST) {
   <input type="submit" class="btn btn-success mt-3 px-4" value="Ingresar">
 </div>
   <a href="./register.php" class="text-center mt-3 d-block p-0 link-active" style="font-size:.9rem">Registrarme</a>
-  <a href="./log-in.php" class="text-center d-block p-0 link-active" style="font-size:.9rem">Olvide mi contraseña</a>
+  <a href="./forgot-password.php" class="text-center d-block p-0 link-active" style="font-size:.9rem">Olvide mi contraseña</a>
  </form>
 </div>
 

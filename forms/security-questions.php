@@ -47,21 +47,21 @@ if($_POST) {
 <form method="POST">
 
 <select class="form-select s-1" aria-label="Select questions" name="first-question">
-  <option value="name-first-pet">¿Cuál fue tu primera mascota?</option>
-  <option value="city-friend-infancy">¿En qué ciudad nació tu mejor amigo/a de la infancia?</option>
-  <option value="food-fav">¿Cuál es tu comida favorita?</option>
+  <option value="Nombre de su primera mascota">¿Cuál fue tu primera mascota?</option>
+  <option value="Ciudad de su amigo de la infancia">¿En qué ciudad nació tu mejor amigo/a de la infancia?</option>
+  <option value="Comida favorita">¿Cuál es tu comida favorita?</option>
   <input class="form-control mt-2 in-1" name="res1" type="text" placeholder="Escriba su respuesta" aria-label="input option" style="display: none" required>
 </select>
 <select class="form-select s-2 mt-4" aria-label="Select questions" name="second-question">
-  <option value="color-fav">¿Cuál es tu color favorito?</option>
-  <option value="sport-fav">¿Cuál es tu deporte favorito?</option>
-  <option value="song-fav">¿Cuál es tu canción favorita?</option>
+  <option value="Color favorito">¿Cuál es tu color favorito?</option>
+  <option value="Deporte favorito">¿Cuál es tu deporte favorito?</option>
+  <option value="Música favorita">¿Cuál es tu canción favorita?</option>
   <input class="form-control mt-2 in-2" name="res2" type="text" placeholder="Escriba su respuesta" aria-label="input option" style="display: none" required>
 </select>
 <select class="form-select s-3 mt-4" aria-label="Select questions" name="third-question">
-  <option value="book-fav">¿Cuál es tu libro favorito?</option>
-  <option value="actress-fav">¿Cuál es el nombre de tu actor o actriz favorito/a?</option>
-  <option value="moovie-fav">¿Cuál es el nombre de tu película favorita?</option>
+  <option value="Libro favorito">¿Cuál es tu libro favorito?</option>
+  <option value="Actriz o actor favorito">¿Cuál es el nombre de tu actor o actriz favorito/a?</option>
+  <option value="Pelicula favorita">¿Cuál es el nombre de tu película favorita?</option>
   <input class="form-control mt-2 in-3" name="res3" type="text" placeholder="Escriba su respuesta" aria-label="input option" style="display: none" required>
 </select>
 
