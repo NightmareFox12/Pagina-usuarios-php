@@ -59,14 +59,14 @@ $resultados = $objConexion->consultar($sql);
  </div>
 
 </content>
-<?php echo $userActualId;
+<?php
 if($_POST) {
  if( isset($_POST['nameUpdate']) && !empty($_POST['nameUpdate']) && isset($_POST['emailUpdate']) && !empty($_POST['emailUpdate']) ) {
    $nameUpdate = $_POST['nameUpdate'];
    $emailUpdate = $_POST['emailUpdate'];
-;
- $sql = "UPDATE users_short SET name = '$nameUpdate', email = '$emailUpdate', password = '$passwordUpdate' WHERE userID = '$userActualId'";
- $objConexion->ejecutar($sql);
+
+   $sql = "UPDATE users_short SET name = '$nameUpdate', email = '$emailUpdate', password = '$passwordUpdate' WHERE userID = '$userActualId'";
+   $objConexion->ejecutar($sql);
 
    header("location: ./edit-perfil.php");
  }
@@ -74,11 +74,6 @@ if($_POST) {
 ?>
 
 <button><a href="./../globals/delete-sesion.php">Cerrar Sesión</a></button>
-
-<script type="text/javascript">
- const bntEdit = document.querySelector(".btn-position");
-
-</script>
 <?php } else { 
 	header("location: ./../index.php");
 }?>
