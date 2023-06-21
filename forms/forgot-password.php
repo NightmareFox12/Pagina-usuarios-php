@@ -30,7 +30,7 @@ if($_POST) {
     <title>Recuperar Contraseña</title>
     <link rel="stylesheet" href="./../css/bootstrap.css">
 </head>
-<body>
+<body class="body">
 <style>
   
 @keyframes aparecer {
@@ -45,7 +45,7 @@ if($_POST) {
 }
 </style> 
   <h3 class="h3 text-center my-5 title">Recuperación de contraseña</h3>
-<div class="form container rounded-3 mt-4 p-4 bg-light mx-auto" style="width:320px;height:300px;box-shadow: 2px 2px 5px #003">
+<div class="form container rounded-3 mt-4 p-4 bg-light mx-auto" style="width:350px;height:300px;box-shadow: 2px 2px 5px #003">
  <form method="POST">
  <div class="mb-3">
   <label>Nombre de usuario</label>
@@ -61,16 +61,6 @@ if($_POST) {
   <a href="./register.php" class="text-center mt-3 d-block link-active" style="font-size:.9rem">Registrarme</a>
  </form>
 </div>
-<script>
-const form = document.querySelector('.form');
-const title = document.querySelector('.title');
-
-addEventListener('load',()=>{
-  form.style.display = 'block';
-  title.style.display = 'block';
-  form.style.animation = 'aparecer .8s forwards';
-  title.style.animation = 'aparecer .8s forwards';
-});
-</script>
+<script src="./../js/background.js"></script>
 </body>
 </html>

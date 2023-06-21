@@ -58,7 +58,7 @@ if($_POST) {
 <body class="body container-fluid">
 <h3 class="h3 text-center my-5 title">Inicie sesión para continuar</h3>
 
-<div class="form container rounded-3 mt-4 p-4 bg-light mx-auto" style="width:320px;height:350px;box-shadow: 2px 2px 5px #003">
+<div class="form container rounded-3 mt-4 p-4 bg-light mx-auto" style="width:350px;height:350px;box-shadow: 2px 2px 5px #003">
  <form method="POST">
  <div class="my-3">
   <label class>Nombre de Usuario</label>
@@ -77,34 +77,7 @@ if($_POST) {
   <a href="./forgot-password.php" class="text-center d-block mt-1 link-active" style="font-size:.9rem">Olvide mi contraseña</a>
  </form>
 </div>
-
-<script type="text/javascript">
-const body = document.querySelector('.body');
-const h3 = document.querySelector('.h3');
-const form = document.querySelector('.form');
-const title = document.querySelector('.title');
-
-addEventListener('load',()=>{
-  form.style.display = 'block';
-  title.style.display = 'block';
-  form.style.animation = 'aparecer .8s forwards';
-  title.style.animation = 'aparecer .8s forwards';
-});
-
-cookies = document.cookie.split('; ');
-cookie = [];
-for(let i=0; i < cookies.length; i++){
- cookie = cookies[i].split('=');
-
-  if(cookie[i] === 'colorFondo'){
-   body.style.backgroundColor = cookie[1];
-    if(cookie[1] === '#161b22'){
-     h3.style.color = '#fff';
-     form.style.boxShadow = '0 0 15px #2600ff';
-    }
-  }     
-}
-</script> 
+<script src="./../js/background.js"></script>
 </body>
 </html>
 <?php

@@ -44,7 +44,7 @@ if($_POST) {
 </style>
 <h3 class="h3 title text-center my-4">Preguntas de seguridad</h3>
 
-<div class="form mt-3 bg-light p-4 rounded-3 mx-auto" style="width: 400px;display: none">
+<div class="form mt-3 bg-light p-4 rounded-3 mx-auto" style="width: 350px;display: none">
 <form method="POST">
 <select class="form-select s-1" aria-label="Select questions" name="first-question">
   <option value="Nombre de su primera mascota">¿Cuál fue tu primera mascota?</option>
@@ -71,26 +71,7 @@ if($_POST) {
 </form>
 </div>
 <script src="./../js/security-questions.js"></script>
-<script type="text/javascript">
-const body = document.querySelector('.body');
-const h4 = document.querySelector('.title');
-const form = document.querySelector('.form');
-
-cookies = document.cookie.split('; ');
-cookie = [];
-for(let i=0; i < cookies.length; i++){
- cookie = cookies[i].split('=');
-
-  if(cookie[i] === 'colorFondo'){
-    console.log(cookie)
-   body.style.backgroundColor = cookie[1];
-    if(cookie[1] === '#161b22'){
-     h4.style.color = '#fff';
-     form.style.boxShadow = '0 0 15px #2600ff';
-    }
-  }     
-}
-</script>  
+<script src="./../js/background.js"></script>
 </body>
 </html>
 <?php

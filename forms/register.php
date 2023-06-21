@@ -60,8 +60,8 @@ if( isset($_SESSION['no-log-in'])) {
 <body class="body">
 <h3 class="h3 my-4 text-center title">Registrese para continuar</h3>
 
-<div class="container-form mt-4 bg-light p-4 rounded-3">
-<form method="POST" class="form">
+<div class="form container-form mt-4 bg-light p-4 rounded-3">
+<form method="POST">
 <div class="mb-3">
   <label>Nombre</label>
   <input type="text" name="name" class="form-control" placeholder="ejem. Miguel" required>
@@ -88,26 +88,7 @@ if( isset($_SESSION['no-log-in'])) {
 
 <script src="./../js/classes.js"></script>
 <script src="./../js/verify.js"></script>
-
-<script type="text/javascript">
-const body = document.querySelector('.body');
-const h3 = document.querySelector('.h3');
-const form = document.querySelector('.container-form');
-
-cookies = document.cookie.split('; ');
-cookie = [];
-for(let i=0; i < cookies.length; i++){
- cookie = cookies[i].split('=');
-
-  if(cookie[i] === 'colorFondo'){
-    body.style.backgroundColor = cookie[1];
-      if(cookie[1] === '#161b22'){
-        h3.style.color = '#fff';
-        form.style.boxShadow = '0 0 15px #2600ff';
-    }
-  }     
-}
-</script>
+<script src="./../js/background.js"></script>
 </body>
 </html>
 

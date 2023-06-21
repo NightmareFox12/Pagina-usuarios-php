@@ -12,7 +12,7 @@ $sql = "SELECT * FROM questions WHERE userID = '$userID'";
       $pregunta3 = $resultado['question3'];   $res3 = $resultado['res3'];
    }
 
-if($_POST){ 
+if($_POST) { 
   if( isset($_POST['primera']) && !empty($_POST['primera']) && 
       isset($_POST['segunda']) && !empty($_POST['segunda']) &&
       isset($_POST['tercera']) && !empty($_POST['tercera']) ) {
@@ -23,9 +23,11 @@ if($_POST){
 
        if( password_verify($primera,$res1) && password_verify($segunda,$res2) && password_verify($tercera,$res3) ){
          header('Location: ./new-password.php');
-       } else {
-          echo 'contrasenias incorrectas';
-       }
+       } else { ?>
+        <div class="w-100 fixed-bottom text-center" style="background-color: #610708;height:40px;color:#fff">
+        <h4 style="line-height: 40px">Respuestas incorrectas</h4>
+       </div>
+        <?php }
       }
 }
 ?>
@@ -37,9 +39,9 @@ if($_POST){
   <link rel="stylesheet" href="./../css/bootstrap.css">
   <title>Preguntas de seguridad</title>
 </head>
-<body>
-<h3 class="h3 text-center my-4">Responda a las preguntas de seguridad</h3>
-<div class="form2 container text-center rounded-3 mt-4 p-4 bg-light mx-auto" style="width:320px;height:400px;box-shadow: 2px 2px 5px #003">
+<body class="body">
+<h3 class="h3 text-center my-4">Preguntas de seguridad</h3>
+<div class="form container rounded-3 mt-4 p-4 bg-light mx-auto" style="width:350px;height:400px;box-shadow: 2px 2px 5px #003">
  <form method="POST">
  <div class="my-3">
   <label><?php echo "¿{$pregunta1}?"?></label>
@@ -59,7 +61,7 @@ if($_POST){
   <a href="./register.php" class="text-center mt-3 d-block p-0 link-active" style="font-size:.9rem">Registrarme</a>
  </form>
 </div>
-
+<script src="./../js/background.js"></script>
 </body>
 </html>
 
