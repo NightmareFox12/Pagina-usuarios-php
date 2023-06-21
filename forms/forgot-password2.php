@@ -29,8 +29,6 @@ if($_POST){
       }
 }
 ?>
-
-
 <!DOCTYPE html>
 <html lang="es">
 <head>
@@ -40,20 +38,19 @@ if($_POST){
   <title>Preguntas de seguridad</title>
 </head>
 <body>
-
 <h3 class="h3 text-center my-4">Responda a las preguntas de seguridad</h3>
 <div class="form2 container text-center rounded-3 mt-4 p-4 bg-light mx-auto" style="width:320px;height:400px;box-shadow: 2px 2px 5px #003">
  <form method="POST">
  <div class="my-3">
-  <label for="primera"><?php echo "¿{$pregunta1}?"?></label>
+  <label><?php echo "¿{$pregunta1}?"?></label>
   <input type="text" name="primera" class="form-control" placeholder="Escriba su respuesta" required>
 </div>
 <div class="my-3">
-  <label for="primera"><?php echo "¿{$pregunta2}?"?></label>
+  <label><?php echo "¿{$pregunta2}?"?></label>
   <input type="text" name="segunda" class="form-control" placeholder="Escriba su respuesta" required>
 </div>
 <div class="my-3">
-  <label for="primera"><?php echo "¿{$pregunta3}?"?></label>
+  <label><?php echo "¿{$pregunta3}?"?></label>
   <input type="text" name="tercera" class="form-control" placeholder="Escriba su respuesta" required>
 </div>
 <div class="mt-3 d-flex justify-content-center align-items-center">

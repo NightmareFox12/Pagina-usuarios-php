@@ -4,10 +4,14 @@
 }
 body {
   height: 100vh;
+  scroll-behavior: smooth;
+}
+.title {
+  display: none;
 }
 .container-form {
   max-width: 350px;
-  height: 460px !important;
+  height: 470px !important;
   margin: 20px auto;
   padding: 20px 10px;
   display: none;
@@ -25,15 +29,8 @@ form {
   display: none;
 }
 input[type="submit"] {
- color: #000;
- width: 30%;
- color: #fff;
- padding: 5px;
- display: block;
- border: none;
- background-color: #a0a0a0;
- box-shadow: none;
- border-radius: 10px;
+ display: block !important;
+ background-color: #7e7e7e;
  transition: .5s;
 }
 input::placeholder {
@@ -50,7 +47,7 @@ input::placeholder {
 @keyframes aparecer {
 	0% {
     opacity: 0;
-    transform: translateX(-20px);
+    transform: translateX(-25px);
   }
 	100% {
     opacity: 1;

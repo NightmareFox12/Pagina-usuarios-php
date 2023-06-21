@@ -42,22 +42,24 @@ if($_POST) {
   100% {transform: translateX(0)}
 }
 </style>
-<h4 class="title text-center my-2">Preguntas de seguridad</h4>
+<h3 class="h3 title text-center my-4">Preguntas de seguridad</h3>
+
 <div class="form mt-3 bg-light p-4 rounded-3 mx-auto" style="width: 400px;display: none">
 <form method="POST">
-
 <select class="form-select s-1" aria-label="Select questions" name="first-question">
   <option value="Nombre de su primera mascota">¿Cuál fue tu primera mascota?</option>
   <option value="Ciudad de su amigo de la infancia">¿En qué ciudad nació tu mejor amigo/a de la infancia?</option>
   <option value="Comida favorita">¿Cuál es tu comida favorita?</option>
   <input class="form-control mt-2 in-1" name="res1" type="text" placeholder="Escriba su respuesta" aria-label="input option" style="display: none" required>
 </select>
+
 <select class="form-select s-2 mt-4" aria-label="Select questions" name="second-question">
   <option value="Color favorito">¿Cuál es tu color favorito?</option>
   <option value="Deporte favorito">¿Cuál es tu deporte favorito?</option>
   <option value="Música favorita">¿Cuál es tu canción favorita?</option>
   <input class="form-control mt-2 in-2" name="res2" type="text" placeholder="Escriba su respuesta" aria-label="input option" style="display: none" required>
 </select>
+
 <select class="form-select s-3 mt-4" aria-label="Select questions" name="third-question">
   <option value="Libro favorito">¿Cuál es tu libro favorito?</option>
   <option value="Actriz o actor favorito">¿Cuál es el nombre de tu actor o actriz favorito/a?</option>
@@ -66,7 +68,6 @@ if($_POST) {
 </select>
 
 <input type="submit" class="btn btn-primary mx-auto d-block px-3 my-3">
-  <a href="./log-in.php" class="text-center d-block p-0 link-active" style="font-size:.9rem">Iniciar Sesión</a>
 </form>
 </div>
 <script src="./../js/security-questions.js"></script>
