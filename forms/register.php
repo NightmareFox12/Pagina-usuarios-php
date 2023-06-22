@@ -47,7 +47,6 @@ if($_POST) {
 ?>
 <?php 
 if( isset($_SESSION['no-log-in'])) {
-
 ?>
 <!DOCTYPE html>
 <html lang="es">
