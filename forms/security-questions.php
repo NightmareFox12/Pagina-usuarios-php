@@ -26,7 +26,8 @@ if($_POST) {
 }
 ?>
 
-<?php if( isset($_SESSION['userID']) ) { ?>
+<?php if( isset($_SESSION['userID']) ) { 
+  if( !isset($_SESSION['log-in']) ) { ?>
 <!DOCTYPE html>
 <html lang="es">
 <head>
@@ -75,6 +76,9 @@ if($_POST) {
 </body>
 </html>
 <?php
+} else {
+  header('Location: ./../Home/home.php');
+}
 } else {
   header('Location: ./../index.php');
 }

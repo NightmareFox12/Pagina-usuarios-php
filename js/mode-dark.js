@@ -41,9 +41,7 @@ body.style.backgroundColor = cookie[1];
  if(cookie[1] === '#161b22'){
    btnBody.checked = true;
    bgBtn.style.backgroundColor = '#0a620a';
-   console.log("modo dark");
  } else {
    btnBody.checked = false;
-     bgBtn.style.backgroundColor = '#022';
-   console.log('modo blanco');
+   bgBtn.style.backgroundColor = '#022';
  }

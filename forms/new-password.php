@@ -23,6 +23,7 @@ if($_POST) {
   }
 }
 ?>
+<?php if( !isset($_SESSION['log-in']) ) { ?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -52,3 +53,8 @@ if($_POST) {
 <script src="./../js/background.js"></script>
 </body>
 </html>
+<?php
+} else {
+  header('Location: ./../Home/home.php');
+}
+?>
