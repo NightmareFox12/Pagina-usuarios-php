@@ -4,6 +4,7 @@ session_start();
 $objConexion = new conexion();
 $userID = $_SESSION['userID'];
 
+//Recibe todas las respuestas ingresadas por el usuario, y las guarda en variables
 if($_POST) {
  if( isset($_POST['first-question']) && isset($_POST['res1']) && !empty($_POST['res1']) && 
      isset($_POST['second-question']) && isset($_POST['res2']) && !empty($_POST['res2']) && 
@@ -12,11 +13,13 @@ if($_POST) {
         $res1 = $_POST['res1'];   $question1 = $_POST['first-question'];
         $res2 = $_POST['res2'];   $question2 = $_POST['second-question'];
         $res3 = $_POST['res3'];   $question3 = $_POST['third-question'];
-
+        
+        //Encripta todas las respuestas para mayor seguridad
         $res1Encripted = password_hash($res1,PASSWORD_DEFAULT); 
         $res2Encripted = password_hash($res2,PASSWORD_DEFAULT);
         $res3Encripted = password_hash($res3,PASSWORD_DEFAULT);
 
+        //Envia todos los datos a la tabla de questions y redirecciona al login
         $sql = "INSERT INTO questions(userID,question1,res1,question2,res2,question3,res3) VALUES ('$userID','$question1','$res1Encripted','$question2','$res2Encripted','$question3','$res3Encripted')";
          $objConexion->ejecutar($sql);
           header('Location: ./log-in.php');

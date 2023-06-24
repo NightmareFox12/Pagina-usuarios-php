@@ -3,12 +3,15 @@
 session_start();
 $objConexion = new conexion();
 
+/*Recibiendo los datos y luego hacer un query a la BD para verificar si el usuario existe, 
+en caso que exista redireccionar la pagina siguiente, en caso contrario mostrar un mensaje*/
 if($_POST) {
   $name = $_POST['name']; $email = $_POST['email'];
 
   $sql = "SELECT * FROM users_short WHERE name = '$name' AND email = '$email'";
   $resultados = $objConexion->consultar($sql);
 
+  //En caso que exista, recuperar su ID 
   if($resultados) {
      foreach($resultados as $resultado) {
       $_SESSION['userID'] = $resultado['userID'];
@@ -21,7 +24,7 @@ if($_POST) {
  <?php }
  }
 ?>
-<?php if( !isset($_SESSION['log-in']) ) { ?>
+<?php if( !isset($_SESSION['log-in']) ) { //Verificar que el usuario no este logeado?>
 <!DOCTYPE html>
 <html lang="es">
 <head>

@@ -2,8 +2,11 @@
 <?php
 session_start();
 $objConexion = new Conexion();
+//Guardar el ID del usuario actual en una variable
 $userID = $_SESSION['userID'];
 
+//Traer todas las preguntas con sus respectivas respuestas del usuario actual, las respuestas 
+// seran usadas para mostrarlas en el formulario
 $sql = "SELECT * FROM questions WHERE userID = '$userID'";
  $resultados = $objConexion->consultar($sql);
    foreach($resultados as $resultado) {
@@ -12,6 +15,7 @@ $sql = "SELECT * FROM questions WHERE userID = '$userID'";
       $pregunta3 = $resultado['question3'];   $res3 = $resultado['res3'];
    }
 
+    //Recibiendo las respuestas que el usuario ingreso en el formulario
 if($_POST) { 
   if( isset($_POST['primera']) && !empty($_POST['primera']) && 
       isset($_POST['segunda']) && !empty($_POST['segunda']) &&
@@ -20,10 +24,10 @@ if($_POST) {
         $primera = $_POST['primera'];
         $segunda = $_POST['segunda'];
         $tercera = $_POST['tercera'];
-
+          //Verificar si sus respuestas ingresadas son correctas con las que estan en la BD
        if( password_verify($primera,$res1) && password_verify($segunda,$res2) && password_verify($tercera,$res3) ){
          header('Location: ./new-password.php');
-       } else { ?>
+       } else { //Las respuestas ingresadas son incorrectas y muestra un mensaje ?>
         <div class="w-100 fixed-bottom text-center" style="background-color: #610708;height:40px;color:#fff">
         <h4 style="line-height: 40px">Respuestas incorrectas</h4>
        </div>
@@ -31,7 +35,7 @@ if($_POST) {
       }
 }
 ?> 
-<?php if( !isset($_SESSION['log-in']) ) { ?>
+<?php if( !isset($_SESSION['log-in']) ) {//Verificar que no este logeado ?>
 <!DOCTYPE html>
 <html lang="es">
 <head>

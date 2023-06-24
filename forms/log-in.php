@@ -1,7 +1,7 @@
 <?php include './../globals/conexion.php'?>
 <?php
 session_start();
-$objConexion = new conexion();
+$objConexion = new conexion() //Instancia a la clase de Conexion;
 
 //Recibiendo los datos del formulario y validando datos
 if($_POST) {
@@ -12,13 +12,14 @@ if($_POST) {
    $sql = "SELECT * FROM users_short WHERE name = '$name'";
    $resultados = $objConexion->consultar($sql);
 
+   //Si esta registrado traer el ID del usuario y su nombre
   if($resultados) {
     foreach ($resultados as $resultado) {
        $passwordEncripted = $resultado['password'];
         if( password_verify($password, $passwordEncripted) ){
          $name = $resultado['name']; 
          $userID = $resultado['userID']; 
-
+         //Eliminar la sesion que no esta logeado y redireccionar al home junto con su nombre y ID
          unset($_SESSION['no-log-in']);
          $_SESSION['userID'] = $userID;
          $_SESSION['log-in'] = $name;
@@ -30,9 +31,7 @@ if($_POST) {
 }
 ?>
 
-<?php if($_SESSION['no-log-in']) {
-  
-?>
+<?php if($_SESSION['no-log-in']) { //Verificar que no este logeado?>
 <!DOCTYPE html>
 <html lang="es">
 <head>

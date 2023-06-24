@@ -1,21 +1,25 @@
 <?php include './../globals/conexion.php'?>
 <?php
 session_start();
+//Extraer el userID del usuario actual
 $objConexion = new Conexion();
 $userID = $_SESSION['userID'];
 
+//Recibir las contrasenias del usuario y guardarlas en sus respectivas variables
 if($_POST) {
   if(isset($_POST['password']) && !empty($_POST['password']) && 
      isset($_POST['passwordVerify']) && !empty($_POST['passwordVerify']) ) {
         $password = $_POST['password'];   
         $passwordVerify = $_POST['passwordVerify'];
   
+        //Verificar que las contrasenias ingresadas coincidan
       if($password === $passwordVerify) {
+        //Encriptar la contrasenia actual y actualizarla
         $passwordNew = password_hash($password,PASSWORD_DEFAULT);
         $sql = "UPDATE users_short SET password = '$passwordNew' WHERE userID = '$userID'";
         $objConexion->ejecutar($sql);
         header('Location: ./log-in.php');
-      } else { ?>
+      } else { //Mostrar mensaje si las contrasenias ingresadas son incorrectas ?>
         <div class="w-100 fixed-bottom text-center" style="background-color: #610708;height:50px;color:#fff">
           <h4 style="line-height: 50px"><?php echo 'Contraseña Incorrecta'?></h4>
         </div>
@@ -23,7 +27,7 @@ if($_POST) {
   }
 }
 ?>
-<?php if( !isset($_SESSION['log-in']) ) { ?>
+<?php if( !isset($_SESSION['log-in']) ) {  //Verificar que el usuario no haya ingresado?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
