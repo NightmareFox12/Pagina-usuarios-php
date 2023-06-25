@@ -1,7 +1,7 @@
 <?php include './../globals/conexion.php'?>
 <?php
 session_start();
-$objConexion = new conexion() //Instancia a la clase de Conexion;
+$objConexion = new conexion(); //Instancia a la clase de Conexion;
 
 //Recibiendo los datos del formulario y validando datos
 if($_POST) {
