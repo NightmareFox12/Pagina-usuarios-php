@@ -3,7 +3,7 @@
 class conexion {
 
   private $host = 'localhost';
-  private $user = 'NightmareFox';
+  private $user = 'root';
   private $password = '';
   private $database = 'users_php';
   private $listo;
